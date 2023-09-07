@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
 type Props = {
@@ -17,7 +16,7 @@ export const SendDiscordService = async (props: Props) => {
         embeds: [
             {
                 title: '`💙` New message from portfolio',
-                description: `**\`🧑\` Name:** ${formatMessageCard(props.email)}\n**\`📩\` Email**:${formatMessageCard(props.email)}\n**\`📝\` Description:**${formatMessageCard(props.description)}`,
+                description: `**\`🧑\` Name:** ${formatMessageCard(props.name)}\n**\`📩\` Email**:${formatMessageCard(props.email)}\n**\`📝\` Description:**${formatMessageCard(props.description)}`,
                 timestamp: new Date().toISOString()
             }
         ]
