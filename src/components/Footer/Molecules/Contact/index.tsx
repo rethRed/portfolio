@@ -42,7 +42,7 @@ export const Contact = () => {
                 control={control}
                 rules={NameValidator}
                 render={({ field }) => (
-                    <Input placeholder="Wilson Gabriel" {...field} disabled={isSubmitting} />
+                    <Input.default placeholder="Wilson Gabriel" {...field} disabled={isSubmitting} />
                 )}
             />
             {errors.name && (<Error>{errors.name.message as string}</Error>)}
@@ -52,7 +52,7 @@ export const Contact = () => {
                 control={control}
                 rules={EmailValidator}
                 render={({ field }) => (
-                    <Input placeholder="example@example.com" {...field} disabled={isSubmitting} />
+                    <Input.default placeholder="example@example.com" {...field} disabled={isSubmitting} />
                 )}
             />
             {errors.email && (<Error>{errors.email.message as string}</Error>)}
@@ -62,7 +62,7 @@ export const Contact = () => {
                 control={control}
                 rules={DescriptionValidator}
                 render={({ field }) => (
-                    <Textarea placeholder="Description" {...field} disabled={isSubmitting} />
+                    <Textarea.default placeholder="Description" {...field} disabled={isSubmitting} />
                 )}
             />
             {errors.description && (<Error>{errors.description.message as string}</Error>)}
