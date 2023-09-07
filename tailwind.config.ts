@@ -16,6 +16,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      backgroundColor: {
+        secondary: '#151c28'
+      },
       fontFamily: {
         mono: ['var(--font-space-grotesk)', 'monospace'],
         roboto: ['var(--font-roboto)', 'sans-serif']
