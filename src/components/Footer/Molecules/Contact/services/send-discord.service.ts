@@ -18,6 +18,7 @@ export const SendDiscordService = async (props: Props) => {
             {
                 title: '`💙` New message from portfolio',
                 description: `**\`🧑\` Name:** ${formatMessageCard(props.email)}\n**\`📩\` Email**:${formatMessageCard(props.email)}\n**\`📝\` Description:**${formatMessageCard(props.description)}`,
+                timestamp: new Date().toISOString()
             }
         ]
     }, {

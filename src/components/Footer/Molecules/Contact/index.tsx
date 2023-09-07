@@ -8,7 +8,7 @@ export const Contact = () => {
 
     const { control, handleSubmit, reset, watch, formState: { errors, isLoading, isSubmitting }, } = useForm({
         defaultValues: {
-            name: 'asdasdasd',
+            name: '',
             email: '',
             description: ''
         }
