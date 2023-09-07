@@ -11,8 +11,7 @@
 
 @layer base {
   body {
-    background-color: #0b111e;
-    @apply text-gray-100
+    @apply bg-primary text-gray-100
   }
 }
 
