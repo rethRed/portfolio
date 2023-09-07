@@ -1,5 +1,6 @@
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
+import { ToastContainer } from '@/components/ToastContainer'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { NextFontWithVariable } from 'next/dist/compiled/@next/font'
@@ -36,6 +37,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${roboto.variable}`}>
         <Navbar />
+        <ToastContainer />
         {children}
         <Footer />
       </body>

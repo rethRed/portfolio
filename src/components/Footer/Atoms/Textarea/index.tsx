@@ -4,7 +4,6 @@ import { UseControllerProps, useController } from "react-hook-form"
 type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & UseControllerProps
 
 export const Textarea = (props: Props) => {
-
     const { field } = useController(props)
 
     return (

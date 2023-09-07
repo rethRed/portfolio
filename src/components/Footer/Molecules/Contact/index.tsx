@@ -1,21 +1,29 @@
-'use client';
 import { useForm } from "react-hook-form"
-import { Textarea, Input, Button } from "../../Atoms"
+import { Textarea, Input, Button, Error } from "../../Atoms"
+import { toast } from "react-hot-toast";
+import { DescriptionValidator, EmailValidator, NameValidator } from "./validators";
 
 export const Contact = () => {
 
-    const { control, handleSubmit, watch, formState: { errors }, } = useForm()
+    const { control, handleSubmit, watch, formState: { errors, isSubmitting }, } = useForm()
 
     const onSubmit = handleSubmit(async (data) => {
-        console.log(data);
+        await fetch('http://yooyoy.com')
+        return
     });
 
     return (
-        <form onSubmit={onSubmit} className="max-w-md w-full flex flex-col gap-y-2 items-center justify-center">
-            <Input type="text" placeholder="Wilson Gabriel" name="name" control={control} />
-            <Input type="email" placeholder="example@example.com" name="email" control={control} />
-            <Textarea placeholder="Description" name="description" control={control} />
-            <Button type="submit">Submit</Button>
+        <form onSubmit={onSubmit} className="max-w-md w-full flex flex-col gap-y-2 items-start justify-center">
+            <Input placeholder="Wilson Gabriel" name="name" disabled={isSubmitting} control={control} rules={NameValidator} />
+            {errors.name && (<Error>{errors.name.message as string}</Error>)}
+
+            <Input placeholder="example@example.com" name="email" disabled={isSubmitting} control={control} rules={EmailValidator} />
+            {errors.email && (<Error>{errors.email.message as string}</Error>)}
+
+            <Textarea placeholder="Description" name="description" disabled={isSubmitting} control={control} rules={DescriptionValidator} />
+            {errors.description && (<Error>{errors.description.message as string}</Error>)}
+
+            <Button type="submit" loading={isSubmitting}>Submit</Button>
         </form>
     )
 }

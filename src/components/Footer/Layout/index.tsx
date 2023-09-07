@@ -1,3 +1,4 @@
+'use client';
 import { Contact, Header } from "../Molecules"
 import { FooterRoot } from "../Organisms"
 
