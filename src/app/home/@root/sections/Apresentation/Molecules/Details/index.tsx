@@ -1,3 +1,4 @@
+import { Button } from "../../Atoms/Button";
 import { StackItem, StackItemProps } from "../../Atoms/StackItem"
 import { BiRightArrow } from 'react-icons/bi';
 
@@ -39,10 +40,7 @@ export const Details = () => {
                     <StackItem key={index} title={stack.title} />
                 ))}
             </div>
-            <button className="px-8 py-3 bg-blue-400 rounded-lg font-medium flex items-center justify-start gap-3 hover:bg-blue-500 transition group">
-                Contact-me
-                <span className="p-1 bg-blue-500 rounded-sm transition group-hover:bg-blue-400"><BiRightArrow /></span>
-            </button>
+            <Button href="/">Contact-me</Button>
         </div>
     )
 }
