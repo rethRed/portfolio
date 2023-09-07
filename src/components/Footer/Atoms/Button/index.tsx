@@ -1,6 +1,6 @@
-import { HtmlHTMLAttributes } from "react"
+import { ButtonHTMLAttributes } from "react"
 
-type Props = HtmlHTMLAttributes<HTMLButtonElement>
+type Props = ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = (props: Props) => {
     return (
