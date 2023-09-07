@@ -2,20 +2,23 @@ import { Controller, useForm } from "react-hook-form"
 import { Textarea, Input, Button, Error } from "../../Atoms"
 import { toast } from "react-hot-toast";
 import { DescriptionValidator, EmailValidator, NameValidator } from "./validators";
+import { SendDiscordService } from "./services/send-discord.service";
 
 export const Contact = () => {
 
-    const { control, handleSubmit, watch, formState: { errors, isSubmitting }, } = useForm({
+    const { control, handleSubmit, watch, formState: { errors, isLoading, isSubmitting }, } = useForm({
         defaultValues: {
-            name: '',
+            name: 'asdasdasd',
             email: '',
             description: ''
         }
     })
 
     const onSubmit = handleSubmit(async (data) => {
-        toast.success('ta aq')
-        return
+        const request = await SendDiscordService({
+            ...data
+        })
+        console.log(request.data)
     });
 
     return (
@@ -24,9 +27,8 @@ export const Contact = () => {
                 name="name"
                 control={control}
                 rules={NameValidator}
-                disabled={isSubmitting}
                 render={({ field }) => (
-                    <Input placeholder="Wilson Gabriel" {...field} />
+                    <Input placeholder="Wilson Gabriel" {...field} disabled={isSubmitting} />
                 )}
             />
             {errors.name && (<Error>{errors.name.message as string}</Error>)}
@@ -35,9 +37,8 @@ export const Contact = () => {
                 name="email"
                 control={control}
                 rules={EmailValidator}
-                disabled={isSubmitting}
                 render={({ field }) => (
-                    <Input placeholder="example@example.com" {...field} />
+                    <Input placeholder="example@example.com" {...field} disabled={isSubmitting} />
                 )}
             />
             {errors.email && (<Error>{errors.email.message as string}</Error>)}
@@ -46,9 +47,8 @@ export const Contact = () => {
                 name="description"
                 control={control}
                 rules={DescriptionValidator}
-                disabled={isSubmitting}
                 render={({ field }) => (
-                    <Textarea placeholder="Description" {...field} />
+                    <Textarea placeholder="Description" {...field} disabled={isSubmitting} />
                 )}
             />
             {errors.description && (<Error>{errors.description.message as string}</Error>)}
