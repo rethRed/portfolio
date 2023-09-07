@@ -1,12 +1,9 @@
-import { HTMLAttributes, TextareaHTMLAttributes } from "react"
-import { UseControllerProps, useController } from "react-hook-form"
+import { TextareaHTMLAttributes, forwardRef } from "react"
 
-type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & UseControllerProps
+type Props = TextareaHTMLAttributes<HTMLTextAreaElement>
 
-export const Textarea = (props: Props) => {
-    const { field } = useController(props)
-
+export const Textarea = forwardRef<HTMLInputElement, Props>((props, ref) => {
     return (
-        <textarea {...props} {...field} className="bg-secondary text-gray-400 max-w-full w-full px-4 py-4 rounded-lg border border-transparent focus:border-indigo-500 outline-none transition" />
+        <textarea {...props} className="bg-secondary text-gray-400 max-w-full w-full px-4 py-4 rounded-lg border border-transparent focus:border-indigo-500 outline-none transition" />
     )
-}
+});
