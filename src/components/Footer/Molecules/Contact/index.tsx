@@ -6,7 +6,7 @@ import { SendDiscordService } from "./services/send-discord.service";
 
 export const Contact = () => {
 
-    const { control, handleSubmit, watch, formState: { errors, isLoading, isSubmitting }, } = useForm({
+    const { control, handleSubmit, reset, watch, formState: { errors, isLoading, isSubmitting }, } = useForm({
         defaultValues: {
             name: 'asdasdasd',
             email: '',
@@ -18,7 +18,21 @@ export const Contact = () => {
         const request = await SendDiscordService({
             ...data
         })
-        console.log(request.data)
+        if (request.status === 201 || request.status === 200 || request.status === 204) {
+            toast.success('👋 Thank you very much for getting in touch, I will respond to you via email shortly! See you soon', {
+                duration: 2500
+            });
+            reset({
+                name: '',
+                email: '',
+                description: ''
+            })
+            return;
+        }
+
+        toast.error('😢 There was an error trying to send, please try again later.', {
+            duration: 2500
+        })
     });
 
     return (
