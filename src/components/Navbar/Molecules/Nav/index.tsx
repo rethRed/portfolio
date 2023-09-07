@@ -14,8 +14,8 @@ const NAV_ITEMS: NavItemProps[] = [
 export const Nav = () => {
     return (
         <nav className="flex items-center justify-center gap-4">
-            {NAV_ITEMS.map(navItem => (
-                <NavItem {...navItem} />
+            {NAV_ITEMS.map((navItem, index) => (
+                <NavItem {...navItem} key={index} />
             ))}
         </nav>
     )
