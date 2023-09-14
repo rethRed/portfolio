@@ -15,11 +15,22 @@
   }
 }
 
-*::-webkit-scrollbar {
-  @apply mx-auto w-full max-w-[1208px] px-6
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
 }
 
-*::-webkit-scrollbar-track {
-  background: #374151;
-  border-radius: 5px;
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-500 rounded-full transition duration-300;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-400;
 }
