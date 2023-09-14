@@ -3,6 +3,7 @@ import { Textarea, Input, Button, Error } from "../../Atoms"
 import { toast } from "react-hot-toast";
 import { DescriptionValidator, EmailValidator, NameValidator } from "./validators";
 import { SendDiscordService } from "./services/send-discord.service";
+import { motion } from "framer-motion";
 
 export const Contact = () => {
 
@@ -36,7 +37,16 @@ export const Contact = () => {
     });
 
     return (
-        <form onSubmit={onSubmit} className="max-w-md w-full flex flex-col gap-y-2 items-start justify-center">
+        <motion.form
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+                delay: 0.2
+            }}
+            onSubmit={onSubmit} className="max-w-md w-full flex flex-col gap-y-2 items-start justify-center">
             <Controller
                 name="name"
                 control={control}
@@ -68,6 +78,6 @@ export const Contact = () => {
             {errors.description && (<Error>{errors.description.message as string}</Error>)}
 
             <Button loading={isSubmitting}>Submit</Button>
-        </form>
+        </motion.form>
     )
 }

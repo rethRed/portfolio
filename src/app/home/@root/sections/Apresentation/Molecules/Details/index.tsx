@@ -1,7 +1,8 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { Button } from "../../Atoms/Button";
 import { StackItem, StackItemProps } from "../../Atoms/StackItem"
-import { BiRightArrow } from 'react-icons/bi';
 
 const StackItems: StackItemProps[] = [
     {
@@ -40,16 +41,16 @@ export const Details = () => {
                 (Clean Architecture and DDD). Passionate about developing concise solutions and always
                 willing to learn more and contribute.
             </p>
-            <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[450px] my-5">
+            <div className="flex flex-wrap gap-x-2 gap-y-5 lg:max-w-[450px] my-5">
                 {StackItems.map((stack, index) => (
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -50 }}
                         transition={{
-                            duration: 0.3,
+                            duration: 0.2,
                             ease: "easeInOut",
-                            delay: index * 0.2,
+                            delay: index * 0.1,
                         }}
                     >
                         <StackItem key={index} title={stack.title} />
