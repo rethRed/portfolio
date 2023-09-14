@@ -8,9 +8,6 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    fontFamily: {
-      sans: ['var(--font-inter)', 'sans-serif']
-    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -22,8 +19,9 @@ const config: Config = {
         secondary: '#151c28'
       },
       fontFamily: {
-        mono: ['var(--font-space-grotesk)', 'monospace'],
-        roboto: ['var(--font-roboto)', 'sans-serif']
+        sans: ['Inter', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        mono: ['Space Grotesk', 'sans-serif'],
       }
     },
   },

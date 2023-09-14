@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Button } from "../../Atoms/Button";
 import { StackItem, StackItemProps } from "../../Atoms/StackItem"
 import { BiRightArrow } from 'react-icons/bi';
@@ -35,13 +36,24 @@ export const Details = () => {
             <p className="font-mono font-semibold text-indigo-400 mb-2">👋 Hello friend, my name is</p>
             <p className="md:text-5xl text-4xl font-extrabold tracking-wide mb-2">Wilson Gabriel</p>
             <p className="text-1xl text-gray-500 font-semibold font-mono">
-                My name is Wilson Gabriel, and I am a backend developer with knowledge in software architecture 
-                (Clean Architecture and DDD). Passionate about developing concise solutions and always 
+                My name is Wilson Gabriel, and I am a backend developer with knowledge in software architecture
+                (Clean Architecture and DDD). Passionate about developing concise solutions and always
                 willing to learn more and contribute.
             </p>
             <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[450px] my-5">
                 {StackItems.map((stack, index) => (
-                    <StackItem key={index} title={stack.title} />
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{
+                            duration: 0.3,
+                            ease: "easeInOut",
+                            delay: index * 0.2,
+                        }}
+                    >
+                        <StackItem key={index} title={stack.title} />
+                    </motion.div>
                 ))}
             </div>
             <Button href="/">Contact-me</Button>

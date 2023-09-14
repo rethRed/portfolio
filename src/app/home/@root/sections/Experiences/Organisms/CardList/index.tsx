@@ -1,49 +1,55 @@
+'use client';
+
 import { Card, CardProps } from "../../Molecules"
-import { FaHtml5 } from 'react-icons/fa'
-import { SiTypescript, SiNestjs, SiDocker, SiKubernetes } from 'react-icons/si';
+import { SiNestjs, SiDocker, SiKubernetes } from 'react-icons/si';
 import { IoHardwareChipSharp } from 'react-icons/io5'
 import { MdCleaningServices, MdNetworkWifi } from 'react-icons/md'
+import { motion } from "framer-motion";
 
 export const CardList = () => {
 
     const cardList: CardProps[] = [
         {
             title: 'Clean Architecture',
-            icon: <MdCleaningServices />,
-            yearOld: 2
+            icon: <MdCleaningServices />
         },
         {
             title: 'NestJS',
-            icon: <SiNestjs />,
-            yearOld: 2
+            icon: <SiNestjs />
         },
         {
             title: 'Docker',
-            icon: <SiDocker />,
-            yearOld: 3
+            icon: <SiDocker />
         },
         {
             title: 'Kubernets',
-            icon: <SiKubernetes />,
-            yearOld: 1
+            icon: <SiKubernetes />
         },
         {
             title: 'Micro Services',
-            icon: <IoHardwareChipSharp />,
-            yearOld: 2
+            icon: <IoHardwareChipSharp />
         },
         {
             title: 'Websocket',
-            icon: <MdNetworkWifi />,
-            yearOld: 2
+            icon: <MdNetworkWifi />
         }
     ]
 
     return (
         <div className="grid grid-cols-none sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {cardList.map((card, index) => {
-                return (<Card {...card} key={index} />)
-            })}
+            {cardList.map((card, index) => (
+                <motion.div
+                    initial={{ opacity: 0, x: -30, scale: 0 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: -30, scale: 0 }}
+                    transition={{
+                        duration: 0.3,
+                        delay: index * 0.1
+                    }}
+                    key={index}>
+                    <Card {...card} />
+                </motion.div>
+            ))}
         </div>
     )
 }
