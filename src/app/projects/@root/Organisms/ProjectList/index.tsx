@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from "framer-motion"
 import { ProjectCard, ProjectCardProps } from "../../Molecules"
 
 export const ProjectList = () => {
@@ -50,7 +53,18 @@ export const ProjectList = () => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {projectList.map((project, index) => (
-                <ProjectCard {...project} key={index} />
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 50 }}
+                    transition={{
+                        duration: 0.2,
+                        ease: "easeInOut",
+                        delay: index * 0.2
+                    }}
+                    key={index}>
+                    <ProjectCard {...project} key={index} />
+                </motion.div>
             ))}
         </div>
     )

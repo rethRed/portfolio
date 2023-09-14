@@ -6,7 +6,8 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Reth Portfolio',
-  description: 'The best programator of network and ...',
+  description: "My name is Wilson Gabriel, and I am a backend developer with knowledge in software architecture (Clean Architecture and DDD).Passionate about developing concise solutions and always willing to learn more and contribute.",
+  keywords: ['portfolio', 'programador', 'free-lancer', 'dono leinad shop', 'leinad shop']
 }
 
 export default function RootLayout({
