@@ -52,8 +52,9 @@ export const Details = () => {
                             ease: "easeInOut",
                             delay: index * 0.1,
                         }}
+                        key={index}
                     >
-                        <StackItem key={index} title={stack.title} />
+                        <StackItem title={stack.title} />
                     </motion.div>
                 ))}
             </div>
