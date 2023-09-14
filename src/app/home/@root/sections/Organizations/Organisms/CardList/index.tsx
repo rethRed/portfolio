@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from "framer-motion"
 import { Card, CardProps } from "../../Molecules/Card"
 
 export const CardList = () => {
@@ -38,7 +41,18 @@ export const CardList = () => {
     return (
         <ol className="relative border-l-2 border-gray-800">
             {cardList.map((card, index) => (
-                <Card {...card} key={index} />
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    transition={{
+                        ease: 'easeInOut',
+                        duration: 0.3,
+                        delay: index * 0.1
+                    }}
+                    key={index}>
+                    <Card {...card} />
+                </motion.div>
             ))}
         </ol>
     )
